@@ -1,2 +1,3 @@
 # my_cs224n
-cs224n python3.6 assignment
+cs224n assignment
+python 3.6
