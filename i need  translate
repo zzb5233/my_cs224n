@@ -1,0 +1,204 @@
+outputs the target outputs either be946
+Skinner's and I once again the same by n947
+which is the output of the final layer948
+of the network so maybe I have missed949
+this when I was talking about this950
+so so the output of the final layer of951
+the network which I represent using an952
+uppercase bar is also going to be a953
+vector so this is the response of the954
+network go to the screen but and this is955
+the design response for that input since956
+yeah so DN is the Yahoo user either957
+there this one no no these the desired958
+output remember this is input output959
+this that we're trying to man so960
+designing a network anonymous donation961
+from extra beam but the actual output of962
+the network is varnish so we're going to963
+call up all outputs wise the final layer964
+is this format propagates platform this965
+was a rotation and introduced right here966
+writing everything they are all to the967
+Indonesian ops or part it P is the968
+design desired and sometimes you know969
+I'm not going to use this additional970
+notation this index n because it gets971
+very confusing so now what about an
+input the input is just a vector of973
+numbers like in ionizing features vector974
+of pixel values or if I'm analyzing
+speech speech so other real random976
+vectors977
+what's more interesting is how we978
+represent the output because really we979
+are performing if you're performing980
+regression output is sister we are981
+number easy if you're performing
+classification you're going to pass data983
+set it off is this a dog or this is a984
+cat how do you assign numbers to this985
+sort of thing so for the real career986
+that it outputs the yes you know we are987
+guided vehicles no big deal but if the988
+output is binary let's say is this a cat989
+is the smile then you're gonna have to990
+convert their to numbers which means991
+the number one cat and zero to not cap992
+and this perceptron just this output993
+unit is expected to have a binary on994
+reality what you won't actually get you995
+won't actually be using a special unit996
+you'd be using a same point everything997
+is differentiable right so that was from998
+0 to 1 so you would view this is the999
+probability of y equals 1 given the1000
+input and we saw this last class so this1001
+is going to be in that case what is the1002
+probability in the picture that we just1003
+saw account for instance now if I have1004
+vector out words meaning suppose I want1005
+to decide about performing1006
+classification like deciding in the1007
+pictures that have a cat a dog a cat in1008
+some pre specified format we specified1009
+water like cattle cattle cattle and now1010
+each output is going to be discussed by1011
+the competence so each output is now1012
+going to be a five component vector and1013
+the desired output is going to be what1014
+we call a one hot vector why is it one1015
+not there's going to be a single entry1016
+which has the value 1 all the other1017
+Rises and easier so here this one hot1018
+vector has one in the first component1019
+and 0 everywhere else1020
+which means I'm assigning one to can and1021
+0 to the others this means I'm1022
+representing which was can't so also1023
+this has a 1 in the second problem and1024
+everything else is 0 the second1025
+component was assigned to dogs if I have1026
+a value the third component in this1027
+example and representing it was handed1028
+and so on this is a one contractor and 41029
+and input of crops we will have five1030
+
+minutes to write two out of the four1031
+zeros and a single position 1 and1032
+position for that matter what were the1033
+network art would actually be so that's1034
+it if I give you training inputs1035
+give me some vector X and I'm going to1036
+give you a desired output P which is a1037
+one Hotlanta because I want to say I1038
+want the network to see this picture and1039
+say it's a camp so the desired output is1040
+going to be zero one zero zero zero the1041
+actual output of the network remember we1042
+have differentiable functions it's not1043
+going to mean that's that1044
+straightforward so the function output1045
+must ideally be a 1 here and 01046
+everywhere else more realistically it's1047
+going to be a probability vector so in1048
+the multi-class classification what is1049
+this probability vector will it be using1050
+this soft max that we have salt I could1051
+just use a soft max layer and we already1052
+saw the soft max layer is going to give1053
+you a set of probability H values and we1054
+are going to try to learn this network1055
+so that they're actually reasonably1056
+accurately represents the people studio1057
+in probability of the 12 given the input1058
+from each of the classes so that is one1059
+of the softmax later is going1060
+probability that I was right so it has a1061
+typical problem statement will be given1062
+a bunch of data training data instances1063
+like images of idiots along with1064
+information about which digital a1065
+businessman which image represents which1066
+midget for binary recognition you have1067
+asked what is this a to a lot for multi1068
+classes it's going to be which digit is1069
+it is or even is it a digit in the first1070
+place so if you were trying to perform1071
+by the name recognition does this image1072
+represent the input-output pairs are not1073
+mere pictures black patches and the1074
+maple so we were shown a trend yes this1075
+is a 2-month notice is not you so five1076
+is clearing this is clearly not an image1077
+of two so really the zero this is an1078
+instant instance of to make this one1079
+this is not a tool so this is zero this1080
+is a true so we gave this one it's one1081
+and you have a network of the sky but1082
+after is going to be Sigma1083
+if you had a multi-class classification1084
+whether you're trying to be to mind a1085
+silent loss value of the digit to the1086
+important then the middle is actually1087
+going to be the practical size itself of1088
+course when you convert it for the1089
+purpose of the networks this number five1090
+is going to be if I'm recognizing nine1091
+digits or ten digits that number five is1092
+going to be a one hot n dimensional1093
+vector with a one and the fifth position1094
+and zero everywhere else1095
+what so you're going to have a bunch of1096
+these training examples and our problem1097
+is to burn all the weeks of the network1098
+to the desired job then define1099
+input-output pairs the designer define a1100
+function we've defined one motor which1101
+is this divergence what is this darling1102
+the divergence quantifies the difference1103
+between these now if the odd one of the1104
+target output of the network is really1105
+matter when chatting laughter so if1106
+we're talking output is of the network1107
+is real valued then I can just if I1108
+understand in Euclidean distance so1109
+here's a y minus T squared norm is the1110
+square Euclidean distance between the1111
+actual output Y which is also back1112
+damage we toss on the staff to half just1113
+for the sake of convenience to donation1114
+so that's going to be half of sum over1115
+all the components of the squared1116
+difference between the actual output of1117
+the network and the designer and why the1118
+half because if you differentiate it1119
+with respect in any given Y eyes it's1120
+simply going to be Y minus T which is1121
+the variance and so specifically because1122
+of this because the derivative is simply1123
+the actual difference the error the1124
+entire process1125
+training using a gradient descent1126
+it's called error back propagation1127
+because we are going to be using a chain1128
+rule to compute the derivatives of the1129
+error with respect to intermediate1130
+values and it turns out it just ends up1131
+doing a lot of multiplies additions of1132
+this basic errors is called data bank1133
+domination but anyway the system Asylum1134
+so for the l2 for real money director1135
+that's how we define as evidence if1136
+you're performing binary classification1137
+then we need some kind of any divergence1138
+metric that tells you how much your1139
+network is part so the network let's say1140
+you want a 1 0 and the network outputs 01141
+1 how much is it well the network was a1142
+1 0 you could use the help of evidence1143
+again it turns out it's not very1144
+effective so we actually use something1145
+called the cross entropy in this case1146
+which is this one so d is a the desired1147
+output it is either 0 or 11148
