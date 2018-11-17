@@ -1,10 +1,10 @@
 import os
 import time
 import tensorflow as tf
-import cPickle
+import pickle
 
-from model import Model
-from q2_initialization import xavier_weight_init
+from my_model import Model
+from my_q2_initialization import xavier_initializer
 from utils.general_utils import Progbar
 from utils.parser_utils import minibatches, load_and_preprocess_data
 
@@ -143,13 +143,12 @@ class ParserModel(Model):
 
         x = self.add_embedding()
         ### YOUR CODE HERE
-        xavier = xavier_weight_init()
         with tf.variable_scope("transformation"):
             b1 = tf.Variable(tf.random_uniform([self.config.hidden_size,]))
             b2 = tf.Variable(tf.random_uniform([self.config.n_classes]))
 
-            self.W = W = xavier([self.config.n_features * self.config.embed_size, self.config.hidden_size])
-            U = xavier([self.config.hidden_size, self.config.n_classes])
+            self.W = W = xavier_initializer([self.config.n_features * self.config.embed_size, self.config.hidden_size])
+            U = xavier_initializer([self.config.hidden_size, self.config.n_classes])
 
             z1 = tf.matmul(x,W) + b1
             h = tf.nn.relu(z1)
@@ -215,7 +214,8 @@ class ParserModel(Model):
             loss = self.train_on_batch(sess, train_x, train_y)
             prog.update(i + 1, [("train loss", loss)])
 
-        print("Evaluating on dev set", dev_UAS, _ = parser.parse(dev_set)) 
+        print("Evaluating on dev set") 
+        dev_UAS, _ = parser.parse(dev_set)
         print("- dev UAS: {:.2f}".format(dev_UAS * 100.0)) 
         return dev_UAS
 
@@ -247,7 +247,9 @@ def main(debug=True):
         os.makedirs('./data/weights/')
 
     with tf.Graph().as_default():
-        print("Building model...", start = time.time()) 
+        
+        print("Building model...")
+        start = time.time()
         model = ParserModel(config, embeddings)
         parser.model = model
         print("took {:.2f} seconds\n".format(time.time() - start)) 
@@ -273,11 +275,12 @@ def main(debug=True):
                 print(80 * "=") 
                 print("Restoring the best model weights found on the dev set") 
                 saver.restore(session, './data/weights/parser.weights')
-                print("Final evaluation on test set", UAS, dependencies = parser.parse(test_set)) 
+                print("Final evaluation on test set")
+                UAS, dependencies = parser.parse(test_set)
                 print("- test UAS: {:.2f}".format(UAS * 100.0)) 
                 print("Writing predictions") 
-                with open('q2_test.predicted.pkl', 'w') as f:
-                    cPickle.dump(dependencies, f, -1)
+                with open('q2_test.predicted.pkl', 'wb') as f:
+                    pickle.dump(dependencies, f, -1)
                 print("Done!") 
 
 if __name__ == '__main__':

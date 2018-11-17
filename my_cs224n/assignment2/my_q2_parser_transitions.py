@@ -185,6 +185,6 @@ def test_minibatch_parse():
 
 
 if __name__ == '__main__':
-    #test_parse_step()
+    test_parse_step()
     test_parse()
-    #test_minibatch_parse()
+    test_minibatch_parse()
